@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="magicasakura-0.1.5">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/9a334f7c204c5268b426b985fb702a6d8585090d/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/9a334f7c204c5268b426b985fb702a6d8585090d/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.bilibili/magicasakura/0.1.5/586e7a8bf953bc3e15bae563356a1adbe8098af0/magicasakura-0.1.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
