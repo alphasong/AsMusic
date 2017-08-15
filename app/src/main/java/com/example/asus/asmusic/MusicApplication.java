@@ -15,6 +15,14 @@ import com.example.asus.asmusic.common.ThemeHelper;
 
 public class MusicApplication extends Application implements ThemeUtils.switchColor{
     public static Context context;
+
+    private static MusicApplication instance;
+
+    public static MusicApplication getInstance() {
+
+        return instance;
+    }
+
     /***
      * 单例模式
      */

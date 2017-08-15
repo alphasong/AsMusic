@@ -2,6 +2,9 @@ package com.example.asus.asmusic.ui.asmusic;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -11,6 +14,7 @@ import android.support.v7.app.ActionBar;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,41 +25,47 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.bilibili.magicasakura.widgets.TintToolbar;
-import com.example.asus.asmusic.BaseActivity;
 import com.example.asus.asmusic.R;
+import com.example.asus.asmusic.ui.Friends.FriendsFragment;
+import com.example.asus.asmusic.ui.adapter.MenuItemAdapter;
 import com.example.asus.asmusic.ui.album.AlbumFragment;
 import com.example.asus.asmusic.ui.radio.RadioFragment;
 import com.example.asus.asmusic.ui.widget.CustomViewPager;
+import com.lapism.searchview.SearchView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends SearchActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
-    @InjectView(R.id.bar_net)
+    private static final String TAG = "MainActivity";
+    @BindView(R.id.bar_net)
     ImageView barNet;
-    @InjectView(R.id.bar_music)
+    @BindView(R.id.bar_music)
     ImageView barMusic;
-    @InjectView(R.id.bar_friends)
+    @BindView(R.id.bar_friends)
     ImageView barFriends;
-    @InjectView(R.id.bar_search)
+    @BindView(R.id.bar_search)
     ImageView barSearch;
-    @InjectView(R.id.toolbar)
+    @BindView(R.id.searchView)
+    SearchView searchView;
+    @BindView(R.id.toolbar)
     TintToolbar toolbar;
-    @InjectView(R.id.main_viewpager)
+    @BindView(R.id.main_viewpager)
     CustomViewPager mainViewpager;
-    @InjectView(R.id.bottom_container)
+    @BindView(R.id.bottom_container)
     FrameLayout bottomContainer;
-    @InjectView(R.id.a)
+    @BindView(R.id.a)
     RelativeLayout a;
-    @InjectView(R.id.id_lv_left_menu)
-    ListView idLvLeftMenu;
-    @InjectView(R.id.drawer_layout)
+    @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
+    @BindView(R.id.id_lv_left_menu)
+    ListView idLvLeftMenu;
+
 
     private ArrayList<ImageView> tabs = new ArrayList<>();
     private ActionBar mActionBar;
@@ -65,7 +75,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         getWindow().setBackgroundDrawableResource(R.color.background_material_light_1);
 
@@ -74,7 +84,8 @@ public class MainActivity extends BaseActivity {
         setDrawerLayout();
     }
 
-    private void setToolBar() {
+
+    protected void setToolBar() {
         setSupportActionBar(toolbar);
         mActionBar = getSupportActionBar();
         mActionBar.setDisplayHomeAsUpEnabled(true);
@@ -89,21 +100,23 @@ public class MainActivity extends BaseActivity {
         // 添加 tab 标签
         tabs.add(barNet);
         tabs.add(barMusic);
+        tabs.add(barFriends);
 
-        CustomViewPager mCustomViewPager = (CustomViewPager) findViewById(R.id.main_viewpager);
 
-        final AlbumFragment mainFragment = new AlbumFragment();
+        final AlbumFragment albumFragment = new AlbumFragment();
         final RadioFragment tabNetPagerFragment = new RadioFragment();
+        final FriendsFragment friendsFragment = new FriendsFragment();
 
         CustomViewPagerAdapter myPagerAdapter = new CustomViewPagerAdapter(getSupportFragmentManager());
-        myPagerAdapter.addFragment(mainFragment);
+        myPagerAdapter.addFragment(albumFragment);
         myPagerAdapter.addFragment(tabNetPagerFragment);
+        myPagerAdapter.addFragment(friendsFragment);
 
-        mCustomViewPager.setAdapter(myPagerAdapter);
-        mCustomViewPager.setCurrentItem(1);
+        mainViewpager.setAdapter(myPagerAdapter);
+        mainViewpager.setCurrentItem(1);
         barMusic.setSelected(true);
 
-        mCustomViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        mainViewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -129,6 +142,7 @@ public class MainActivity extends BaseActivity {
     private void setDrawerLayout() {
         LayoutInflater inflater = LayoutInflater.from(this);
         idLvLeftMenu.addHeaderView(inflater.inflate(R.layout.nav_header_main, idLvLeftMenu, false));
+        idLvLeftMenu.setAdapter(new MenuItemAdapter(this));
         idLvLeftMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -141,9 +155,23 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    /***
-     *切换 toolbar 的 tab 标签
-     */
+    @Override
+
+    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        initSearch();
+    }
+
+    private void initSearch() {
+        setSearchView();
+        customSearchView(true);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return true;
+    }
+
     private void changeTabs(int position) {
         for (int i = 0; i < tabs.size(); i++) {
             if (position == i) {
@@ -164,10 +192,22 @@ public class MainActivity extends BaseActivity {
                 mainViewpager.setCurrentItem(1);
                 break;
             case R.id.bar_friends:
+                mainViewpager.setCurrentItem(2);
                 break;
             case R.id.bar_search:
+                searchView.open(true);
                 break;
         }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        return true;
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 
     /***

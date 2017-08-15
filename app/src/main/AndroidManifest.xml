@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".BaseActivity" />
+        <activity android:name=".ui.asmusic.SearchActivity"/>
         <activity android:name=".ui.WelcomeActivity"></activity>
         <activity android:name=".ui.guide.GuideActivity"></activity>
     </application>

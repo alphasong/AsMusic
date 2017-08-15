@@ -22,4 +22,6 @@
         android:clipToPadding="false"
         android:divider="@null"
         android:listSelector="?attr/selectableItemBackground"/>
+
+
 </android.support.v4.widget.DrawerLayout>

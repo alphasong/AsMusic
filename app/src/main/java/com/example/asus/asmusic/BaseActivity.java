@@ -11,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.asus.asmusic.R;
+import com.example.asus.asmusic.ui.asmusic.SearchActivity;
+import com.lapism.searchview.SearchAdapter;
 
 /**
  * Created by ASUS on 2017/4/18.
