@@ -26,7 +26,7 @@ import android.support.v4.widget.CompoundButtonCompat;
 import android.util.AttributeSet;
 import android.widget.CompoundButton;
 
-import com.cainiao5.cainiaomusic.R;
+import com.example.asus.asmusic.R;
 
 import magicasakura.utils.DrawableUtils;
 import magicasakura.utils.TintInfo;

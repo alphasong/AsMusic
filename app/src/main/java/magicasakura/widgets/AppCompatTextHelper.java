@@ -23,7 +23,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 
-import com.cainiao5.cainiaomusic.R;
+import com.example.asus.asmusic.R;
 
 import magicasakura.utils.TintInfo;
 import magicasakura.utils.TintManager;

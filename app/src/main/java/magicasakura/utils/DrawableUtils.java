@@ -33,7 +33,7 @@ import android.util.StateSet;
 import android.util.TypedValue;
 import android.util.Xml;
 
-import com.cainiao5.cainiaomusic.R;
+import com.example.asus.asmusic.R;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;

@@ -3,7 +3,6 @@ package com.example.asus.asmusic.ui.album;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
@@ -12,30 +11,25 @@ import android.view.ViewGroup;
 
 import com.example.asus.asmusic.R;
 import com.example.asus.asmusic.ui.adapter.TabAlbumAdapter;
-import com.example.asus.asmusic.ui.asmusic.BaseFragment;
+import com.example.asus.asmusic.ui.cnmusic.BaseFragment;
+import com.example.asus.asmusic.ui.adapter.TabAlbumAdapter;
 
-import butterknife.BindView;
+
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.Unbinder;
-
-import static butterknife.ButterKnife.bind;
 
 /**
- * A simple {@link Fragment} subclass.
- * 唱片
+ * 第三模块:唱片
  */
-public class AlbumFragment extends Fragment {
+public class AlbumFragment extends BaseFragment {
 
 
-    @BindView(R.id.tab_layout)
+    @Bind(R.id.tab_layout)
     TabLayout mTabLayout;
-    @BindView(R.id.viewpager)
+    @Bind(R.id.viewpager)
     ViewPager mViewpager;
-    Unbinder unbinder;
     private ActionBar ab;
     private TabAlbumAdapter mLocalMusicAdapter;
-
-
 
     public AlbumFragment() {
         // Required empty public constructor
@@ -46,10 +40,12 @@ public class AlbumFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
         View inflate = inflater.inflate(R.layout.fragment_album, container, false);
 
-        unbinder = ButterKnife.bind(this,inflate);
+        ButterKnife.bind(this, inflate);
+
+
+        mLocalMusicAdapter = new TabAlbumAdapter(getChildFragmentManager());
 
         mViewpager.setAdapter(mLocalMusicAdapter);
 
@@ -59,13 +55,11 @@ public class AlbumFragment extends Fragment {
 
         mTabLayout.setupWithViewPager(mViewpager);
         return inflate;
-
-
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        unbinder.unbind();
+        ButterKnife.unbind(this);
     }
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="white_text">#fafafa</color>
+    <color name="transfer">#00000000</color>
 
     <!-- notification text -->
     <color name="bottom_text">#c1c0c0</color>
@@ -12,6 +13,16 @@
     <color name="small_font">#FF757575</color>
     <color name="text_color">#FF000000</color>
     <color name="widget_background_color">#a0000000</color>
+    <color name="white_normal">#DEFFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="black_alpha">#8A000000</color>
+    <color name="black_alpha_more">#64000000</color>
+    <color name="black_normal">#DE000000</color>
+    <color name="grey_alpha">#8Acccccc</color>
+    <color name="sk_color_838383">#ff999999</color>
+    <color name="sk_color_dividing_line">#ffdedede</color>
+    <color name="color_transparent">#00000000</color>
+    <color name="bg_item_selected">#fff0f0f0</color>
 
     <!-- Menu Item Color -->
     <color name="menu_transparent">#00FFFFFF</color>
@@ -31,6 +42,25 @@
     <color name="toolabar_color">#d20000</color>
 
     <color name="toolbarTextColor">#ffffffff</color>
+    <color name="bg_night">#ff000000</color>
+    <color name="bg_day">#FFFFFF</color>
+    <color name="line_day">#d20000</color>
+    <color name="line_night">#d20000</color>
+
+    <color name="single_line_night">#666666</color>
+    <color name="single_line_day">#e0e0e0</color>
+
+    <color name="text_day">#88000000</color>
+    <color name="text_night">#ffffffff</color>
+
+    <color name="actionbar_day">#d20000</color>
+    <color name="actionbar_night">#2A2A2A</color>
+
+
+    <!--首页Menu-->
+    <color name="menu_text_color_night">#ffffff</color>
+    <color name="navigaton_drawer_bg_night">#2A2A2A</color>
+    <color name="selected_bg_color_night">#000000</color>
 
 
     <color name="abc_input_method_navigation_guard">@android:color/black</color>
@@ -351,9 +381,5 @@
     <color name="red_dark">#C62828</color>
     <color name="red_trans">#99F44336</color>
     <color name="test_color">#696969</color>
-
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
 
 </resources>

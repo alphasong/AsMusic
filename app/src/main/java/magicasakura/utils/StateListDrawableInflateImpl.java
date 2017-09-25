@@ -23,7 +23,7 @@ import android.graphics.drawable.StateListDrawable;
 import android.util.AttributeSet;
 import android.util.SparseArray;
 
-import com.cainiao5.cainiaomusic.R;
+import com.example.asus.asmusic.R;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;

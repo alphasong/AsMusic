@@ -2,6 +2,7 @@ package com.example.asus.asmusic.ui.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,18 +10,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.asus.asmusic.R;
+import com.example.asus.asmusic.common.utils.GlideUtils;
 import com.example.asus.asmusic.data.SongListInfo;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.asus.asmusic.R.drawable.c;
-
-/**
- * Created by ASUS on 2017/8/10.
- */
-
-public class NewSongAdapter extends RecyclerView.Adapter<NewSongAdapter.MyViewHolder>{
+public class NewSongAdapter extends RecyclerView.Adapter<NewSongAdapter.MyViewHolder> {
     private Context context;
     public static final String TAG = "RecyclerViewVideoAdapter";
     private List<SongListInfo.ContentBean> resultData = new ArrayList<>();
@@ -28,16 +24,40 @@ public class NewSongAdapter extends RecyclerView.Adapter<NewSongAdapter.MyViewHo
     public NewSongAdapter(Context context) {
         this.context = context;
     }
+
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        MyViewHolder holder = new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.item_newsong,
-                parent, false));
+        MyViewHolder holder = new MyViewHolder(LayoutInflater.from(
+                context).inflate(R.layout.item_newsong, parent,
+                false));
         return holder;
     }
 
-    @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void setData(List<SongListInfo.ContentBean> data) {
+        this.resultData = data;
+        Log.e("setData: ", "setData: " + resultData.size());
+        notifyDataSetChanged();
+    }
 
+    @Override
+    public void onBindViewHolder(final MyViewHolder holder, int position) {
+        final SongListInfo.ContentBean dataBean = resultData.get(position);
+        holder.heardNum.setText("" + dataBean.getListenum());
+
+        holder.subTitle.setText(dataBean.getTag());
+        holder.title.setText(dataBean.getTitle());
+        GlideUtils.with(context, dataBean.getPic_300(), R.drawable.a8y, holder.avatar);
+
+        // 如果设置了回调，则设置点击事件
+        if (mOnItemClickLitener != null) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = holder.getLayoutPosition();
+                    mOnItemClickLitener.onItemClick(holder.itemView, pos,dataBean.getListid());
+                }
+            });
+        }
     }
 
     @Override
@@ -45,12 +65,13 @@ public class NewSongAdapter extends RecyclerView.Adapter<NewSongAdapter.MyViewHo
         return resultData.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder{
+    class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView avatar;
         TextView title;
         TextView subTitle;
         ImageView playAll;
         TextView heardNum;
+
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -62,13 +83,16 @@ public class NewSongAdapter extends RecyclerView.Adapter<NewSongAdapter.MyViewHo
         }
     }
 
-        public interface OnItemClickLitener {
-            void onItemClick(View view, int position,String listid);
-        }
 
-        private OnItemClickLitener mOnItemClickLitener;
+    public interface OnItemClickLitener {
+        void onItemClick(View view, int position,String listid);
+    }
 
-        public void setOnItemClickLitener(OnItemClickLitener mOnItemClickLitener) {
-            this.mOnItemClickLitener = mOnItemClickLitener;
-        }
+    private OnItemClickLitener mOnItemClickLitener;
+
+    public void setOnItemClickLitener(OnItemClickLitener mOnItemClickLitener) {
+        this.mOnItemClickLitener = mOnItemClickLitener;
+    }
+
+
 }

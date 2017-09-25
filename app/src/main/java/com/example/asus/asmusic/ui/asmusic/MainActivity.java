@@ -36,34 +36,34 @@ import com.lapism.searchview.SearchView;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
+import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends SearchActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     private static final String TAG = "MainActivity";
-    @BindView(R.id.bar_net)
+    @Bind(R.id.bar_net)
     ImageView barNet;
-    @BindView(R.id.bar_music)
+    @Bind(R.id.bar_music)
     ImageView barMusic;
-    @BindView(R.id.bar_friends)
+    @Bind(R.id.bar_friends)
     ImageView barFriends;
-    @BindView(R.id.bar_search)
+    @Bind(R.id.bar_search)
     ImageView barSearch;
-    @BindView(R.id.searchView)
+    @Bind(R.id.search_view_item)
     SearchView searchView;
-    @BindView(R.id.toolbar)
+    @Bind(R.id.toolbar)
     TintToolbar toolbar;
-    @BindView(R.id.main_viewpager)
+    @Bind(R.id.main_viewpager)
     CustomViewPager mainViewpager;
-    @BindView(R.id.bottom_container)
+    @Bind(R.id.bottom_container)
     FrameLayout bottomContainer;
-    @BindView(R.id.a)
+    @Bind(R.id.a)
     RelativeLayout a;
-    @BindView(R.id.drawer_layout)
+    @Bind(R.id.drawerLayout)
     DrawerLayout drawerLayout;
-    @BindView(R.id.id_lv_left_menu)
+    @Bind(R.id.id_lv_left_menu)
     ListView idLvLeftMenu;
 
 

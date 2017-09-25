@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="library-1.0.3">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/d568dba51afc3264b37c9adde1c625d17cabbb40/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/d568dba51afc3264b37c9adde1c625d17cabbb40/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.cpacm.simpleslider/library/1.0.3/a7d03240aed7be8c6ceb2000edff7b0dfa360e54/library-1.0.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

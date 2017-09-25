@@ -21,7 +21,7 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.cainiao5.cainiaomusic.R;
+import com.example.asus.asmusic.R;
 
 import magicasakura.utils.ThemeUtils;
 

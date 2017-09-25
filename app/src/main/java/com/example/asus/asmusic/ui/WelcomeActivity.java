@@ -45,7 +45,7 @@ public class WelcomeActivity extends BaseActivity {
                 //判断是否登录
 
                 //跳转界面
-                startToActivity(MainActivity.class);
+                startActivity(MainActivity.class);
 
             }
         });

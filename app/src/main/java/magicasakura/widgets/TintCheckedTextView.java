@@ -26,7 +26,7 @@ import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
 import android.widget.CheckedTextView;
 
-import com.cainiao5.cainiaomusic.R;
+import com.example.asus.asmusic.R;
 
 import magicasakura.utils.TintManager;
 

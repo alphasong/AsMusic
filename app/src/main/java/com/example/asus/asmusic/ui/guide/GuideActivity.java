@@ -14,45 +14,41 @@ import com.example.asus.asmusic.R;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
+
 
 public class GuideActivity extends BaseActivity {
-
-
-    @BindView(R.id.vp)
-    ViewPager vp;
-    @BindView(R.id.iv1)
-    ImageView iv1;
-    @BindView(R.id.iv2)
-    ImageView iv2;
-    @BindView(R.id.iv3)
-    ImageView iv3;
-    @BindView(R.id.bt_start)
-    Button btStart;
+    @Bind(R.id.vp)
+    ViewPager mVp;
+    @Bind(R.id.iv1)
+    ImageView mIv1;
+    @Bind(R.id.iv2)
+    ImageView mIv2;
+    @Bind(R.id.iv3)
+    ImageView mIv3;
+    @Bind(R.id.bt_start)
+    Button mBtStart;
     private ArrayList<GuideFragment> fragments;
 
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guide);
         ButterKnife.bind(this);
         initData();
         initView();
 
-
     }
 
     private void initView() {
-        vp.setOffscreenPageLimit(3);
-        vp.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
-        vp.addOnPageChangeListener(new MyPagerListener());
+        mVp.setOffscreenPageLimit(3);
+        mVp.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
+        mVp.addOnPageChangeListener(new MyPagerListner());
     }
 
     /***
-     * 初始化数据，添加三个 fragment
+     * 初始化数据,添加三个fragment
      */
     private void initData() {
         fragments = new ArrayList<>();
@@ -60,7 +56,6 @@ public class GuideActivity extends BaseActivity {
         Bundle bundle1 = new Bundle();
         bundle1.putInt("index", 1);
         fragment1.setArguments(bundle1);
-        fragments.add(fragment1);
 
         GuideFragment fragment2 = new GuideFragment();
         Bundle bundle2 = new Bundle();
@@ -93,7 +88,8 @@ public class GuideActivity extends BaseActivity {
         }
     }
 
-    public class MyPagerListener implements ViewPager.OnPageChangeListener {
+
+    public class MyPagerListner implements ViewPager.OnPageChangeListener {
 
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -102,21 +98,23 @@ public class GuideActivity extends BaseActivity {
 
         /***
          * 切换下标点
+         *
          * @param position
          */
         @Override
         public void onPageSelected(int position) {
-            btStart.setVisibility(View.GONE);
-            iv1.setImageResource(R.mipmap.dot_normal);
-            iv2.setImageResource(R.mipmap.dot_normal);
-            iv3.setImageResource(R.mipmap.dot_normal);
+            mBtStart.setVisibility(View.GONE);
+            mIv1.setImageResource(R.mipmap.dot_normal);
+            mIv2.setImageResource(R.mipmap.dot_normal);
+            mIv3.setImageResource(R.mipmap.dot_normal);
 
             if (position == 0) {
-                iv1.setImageResource(R.mipmap.dot_focus);
+                mIv1.setImageResource(R.mipmap.dot_focus);
             } else if (position == 1) {
-                iv2.setImageResource(R.mipmap.dot_focus);
+                mIv2.setImageResource(R.mipmap.dot_focus);
             } else {
-                iv3.setImageResource(R.mipmap.dot_focus);
+                mIv3.setImageResource(R.mipmap.dot_focus);
+                mBtStart.setVisibility(View.VISIBLE);
             }
 
         }
@@ -128,7 +126,4 @@ public class GuideActivity extends BaseActivity {
     }
 
 
-    @OnClick(R.id.bt_start)
-    public void onViewClicked() {
-    }
 }

@@ -2,11 +2,51 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
         <item name="android:actionOverflowButtonStyle">@style/MyOverflowStyle</item>
         <!-- Customize your theme here. -->
         <item name="alertDialogTheme">@style/AppTheme.Dialog.Alert</item>
         <item name="android:windowBackground">@null</item>
         <item name="android:windowAnimationStyle">@style/NoAnimation</item>
+        <!--导航栏的颜色-->
+        <item name="colorPrimary">@color/theme_color_primary</item>
+        <item name="colorPrimaryDark">@color/theme_color_PrimaryDark</item>
+        <item name="colorAccent">@color/theme_color_PrimaryAccent</item>
+
+        <!--状态栏的颜色-->
+
+    </style>
+
+    <!--夜间模式-->
+    <style name="BaseNight">
+        <item name="BackgroundColor">@color/bg_night</item>
+        <item name="TextColor">@color/text_night</item>
+        <item name="LineColor">@color/line_night</item>
+        <item name="ActionbarColor">@color/actionbar_night</item>
+    </style>
+    <style name="Theme.setting.night" parent="BaseNight">
+    </style>
+    <style name="Theme.index.night" parent="BaseNight">
+    </style>
+    <!--白天模式-->
+    <style name="BaseDay">
+        <item name="BackgroundColor">@color/bg_day</item>
+        <item name="TextColor">@color/text_day</item>
+        <item name="LineColor">@color/theme_color_primary</item>
+        <item name="ActionbarColor">@color/theme_color_PrimaryDark</item>
+    </style>
+    <style name="Theme.setting.day" parent="BaseDay">
+    </style>
+    <style name="Theme.index.day" parent="BaseDay">
+    </style>
+
+    <!--绿色的样式-->
+    <!--蓝色的样式-->
+
+
+
+    <!--toolbar菜单按钮的颜色-->
+    <style name="ActionButton.Overflow" parent="android:style/Widget.Holo.Light.ActionButton.Overflow">
     </style>
 
     <style name="LockScreenTheme" parent="AppTheme">
@@ -185,6 +225,26 @@
         <item name="android:windowMinWidthMinor">90%</item>
         <item name="android:windowMinWidthMajor">90%</item>
         <item name="android:maxWidth">1080px</item>
+    </style>
+
+
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark" />
+    <style name="TextDefault">
+        <item name="android:textSize">@dimen/bd_text_default</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+    <style name="Dividingline">
+        <item name="android:background">@color/sk_color_dividing_line</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">@dimen/dividing_line_height</item>
+    </style>
+    <style name="DividinglineHasMargin" parent="@style/Dividingline">
+        <item name="android:layout_marginLeft">@dimen/layout_padding_left</item>
+        <item name="android:layout_marginRight">@dimen/layout_padding_right</item>
     </style>
 
 </resources>

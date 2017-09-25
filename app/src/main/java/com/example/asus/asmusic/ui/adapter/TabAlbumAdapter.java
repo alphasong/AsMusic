@@ -4,21 +4,20 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.asus.asmusic.ui.album.MVFragment;
 import com.example.asus.asmusic.ui.album.NewSongFragment;
 import com.example.asus.asmusic.ui.album.RankingFragment;
+import com.example.asus.asmusic.ui.album.MVFragment;
 
 /**
- * Created by ASUS on 2017/8/5.
+ * Created by hongkl on 17/5/22.
  */
+public class TabAlbumAdapter extends FragmentPagerAdapter {
 
-public class TabAlbumAdapter extends FragmentPagerAdapter{
 
-    private String[] titles = new String[]{"新曲", "歌单", "排行榜"};
+    private String[] titles = new String[]{"歌单", "MV", "排行榜"};
     private NewSongFragment newSongFragment;
     private MVFragment songMenuFragment;
     private RankingFragment rankingFragment;
-
 
     public TabAlbumAdapter(FragmentManager fm) {
         super(fm);
@@ -27,6 +26,7 @@ public class TabAlbumAdapter extends FragmentPagerAdapter{
     @Override
     public Fragment getItem(int position) {
         switch (position) {
+
             case 0:
                 if (newSongFragment == null) {
                     newSongFragment = newSongFragment.newInstance();
@@ -44,6 +44,7 @@ public class TabAlbumAdapter extends FragmentPagerAdapter{
                 }
                 return rankingFragment;
         }
+
         return null;
     }
 
@@ -52,8 +53,10 @@ public class TabAlbumAdapter extends FragmentPagerAdapter{
         return titles.length;
     }
 
+
     @Override
-    public CharSequence getPageTitle(int position){
-            return super.getPageTitle(position);
+    public CharSequence getPageTitle(int position) {
+        return titles[position];
     }
+
 }

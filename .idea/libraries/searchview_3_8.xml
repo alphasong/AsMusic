@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="searchview-3.8">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.android/build-cache/b36e42803cf7ee8d1692d6088c969a28a0105372/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/b36e42803cf7ee8d1692d6088c969a28a0105372/output/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.lapism/searchview/3.8/ef1885e93d256b9a84b929ea0a9ab5ce8eaf50d9/searchview-3.8-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

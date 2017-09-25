@@ -22,7 +22,7 @@ import android.graphics.drawable.Drawable;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 
-import com.cainiao5.cainiaomusic.R;
+import com.example.asus.asmusic.R;
 
 import magicasakura.utils.TintManager;
 

@@ -54,16 +54,15 @@
         </LinearLayout>
 
 
-        <com.bilibili.magicasakura.widgets.TintImageView
+        <magicasakura.widgets.TintImageView
             android:id="@+id/play_list"
             android:layout_width="43dp"
             android:layout_height="43dp"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:onClick="click_last"
             app:imageTint="@color/theme_color_primary"
             android:src="@drawable/playbar_btn_playlist" />
 
-        <com.bilibili.magicasakura.widgets.TintImageView
+        <magicasakura.widgets.TintImageView
             android:id="@+id/control"
             android:layout_width="41dp"
             android:layout_height="46dp"
@@ -71,20 +70,19 @@
             app:imageTint="@color/theme_color_primary"
             android:src="@drawable/playbar_btn_play" />
 
-        <com.bilibili.magicasakura.widgets.TintImageView
+        <magicasakura.widgets.TintImageView
             android:id="@+id/play_next"
             android:layout_width="43dp"
             android:layout_height="43dp"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:onClick="click_next"
             app:imageTint="@color/theme_color_primary"
             android:src="@drawable/playbar_btn_next" />
     </LinearLayout>
-    <com.bilibili.magicasakura.widgets.TintProgressBar
+    <SeekBar
         android:id="@+id/song_progress_normal"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:progress="30"
-        app:progressTint="@color/theme_color_primary" />
+        android:progressTint="@color/theme_color_primary" />
 </LinearLayout>

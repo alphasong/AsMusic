@@ -52,7 +52,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import android.widget.WrapperListAdapter;
 
-import com.cainiao5.cainiaomusic.R;
+import com.example.asus.asmusic.R;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;

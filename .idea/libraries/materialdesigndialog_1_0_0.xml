@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="materialdesigndialog-1.0.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.android/build-cache/f53470fc99703d152a50611e34a8f5e0c96ce20d/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/f53470fc99703d152a50611e34a8f5e0c96ce20d/output/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.lb/materialdesigndialog/1.0.0/5bfaa5f9d5427adc4899c78e6e4e52feea9d32af/materialdesigndialog-1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

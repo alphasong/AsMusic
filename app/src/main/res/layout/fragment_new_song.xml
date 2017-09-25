@@ -1,13 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelactiveLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="com.cainiao5.cainiaomusic.ui.album.NewSongFragment">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView_newSong"
+        android:id="@+id/recycleView_newsong"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
     </android.support.v7.widget.RecyclerView>
 
-</RelactiveLayout>
 
+</RelativeLayout>

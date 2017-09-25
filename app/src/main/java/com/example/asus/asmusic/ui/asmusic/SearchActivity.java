@@ -32,7 +32,7 @@ public class SearchActivity extends BaseActivity {
 
         historyTable = new SearchHistoryTable(this);
 
-        searchView = (SearchView) findViewById(R.id.searchView);
+        searchView = (SearchView) findViewById(R.id.search_view_item);
         if(searchView != null){
             searchView.setHint("歌手/专辑/名称");
             searchView.setVoiceText("");
